@@ -106,6 +106,11 @@ classDiagram
         +ForeignKey uploaded_by
         +__str__()
     }
+ TeamMember  -->  User : linked via
+    Shift -->  TeamMember : records shift for
+    PatientFile  --> TeamMember : uploaded by
+    PatientFile -->  Patient : associated with
+    Patient  -->  TeamMember : assigned to
 
    
 ```
