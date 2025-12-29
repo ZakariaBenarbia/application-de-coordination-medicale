@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>/* small fallback */
+    .container{padding:1rem;max-width:760px;margin:4rem auto}
+    .field{margin-bottom:1rem}
+    .error{color:#b00020;background:#fff0f0;padding:0.5rem;border-radius:6px;margin-top:0.5rem}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+
+        
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            {% if form.is_bound and form.non_field_errors %}
+                <div class="error">{{ form.non_field_errors|join:"<br>"|safe }}</div>
+            {% endif %}
+
+            <div class="field">
+                {{ form.username.label_tag }}<br>
+                {{ form.username }}
+                {% if form.is_bound and form.username.errors %}
+                    <div class="error">{{ form.username.errors|join:" " }}</div>
+                {% endif %}
+            </div>
+
+            <div class="field">
+                {{ form.password.label_tag }}<br>
+                {{ form.password }}
+                {% if form.is_bound and form.password.errors %}
+                    <div class="error">{{ form.password.errors|join:" " }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

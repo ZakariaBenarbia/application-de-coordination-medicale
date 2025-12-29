@@ -1,0 +1,77 @@
+{% extends "medapp/base.html" %}
+{% block title %}Medical Team Directory{% endblock %}
+
+{% block content %}
+<div class="team-container">
+    <div class="page-header">
+        <div class="header-content">
+            <h1>Medical Team</h1>
+            <p class="page-subtitle">Meet Our Healthcare Professionals</p>
+            <div class="team-stats">
+                <span class="stat-item">
+                    <span class="stat-number">{{ members.count }}</span>
+                    <span class="stat-label">Team Members</span>
+                </span>
+                {% if role_counts %}
+                <span class="stat-item">
+                    <span class="stat-number">{{ role_counts|length }}</span>
+                    <span class="stat-label">Specialties</span>
+                </span>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-grid">
+        {% for m in members %}
+        <div class="team-member-card">
+            <div class="member-avatar">
+                <div class="avatar-placeholder">
+                    {{ m.name|make_list|first|upper }}
+                </div>
+            </div>
+            
+            <div class="member-info">
+                <h2 class="member-name">
+                    <a href="{% url 'medapp:team_member_detail' m.id %}" class="member-link">
+                        {{ m.name }}
+                    </a>
+                </h2>
+                
+                <div class="member-role">
+                    <span class="role-badge">{{ m.role }}</span>
+                </div>
+
+                <div class="member-contact">
+                    {% if m.email %}
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:{{ m.email }}" class="contact-link">{{ m.email|truncatechars:20 }}</a>
+                    </div>
+                    {% endif %}
+                    
+                    {% if m.phone %}
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span class="contact-text">{{ m.phone }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="member-card-footer">
+                <a href="{% url 'medapp:team_member_detail' m.id %}" class="btn-view-profile">
+                    View Profile →
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="empty-state">
+            <div class="empty-icon">👥</div>
+            <h3>No Team Members Found</h3>
+            <p>There are currently no team members in the system.</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

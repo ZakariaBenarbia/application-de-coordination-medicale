@@ -1,0 +1,110 @@
+{% extends "medapp/base.html" %}
+{% block title %}Team Member - {{ member.name }}{% endblock %}
+
+{% block content %}
+<div class="team-member-detail-container">
+    <div class="member-header">
+        <div class="header-content">
+            <h1 class="member-name">{{ member.name }}</h1>
+            <div class="member-role-badge">{{ member.role }}</div>
+        </div>
+        <div class="header-actions">
+            <a href="{% url 'medapp:team_member_list' %}" class="btn btn-secondary">
+                ← Back to Team
+            </a>
+        </div>
+    </div>
+
+    <div class="member-profile-grid">
+        <div class="profile-card">
+            <div class="card-header">
+                <h2>Professional Information</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">👤</div>
+                        <div class="info-content">
+                            <label>Role</label>
+                            <span class="info-value">{{ member.role }}</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <label>Email</label>
+                            <a href="mailto:{{ member.email }}" class="info-value email-link">
+                                {{ member.email }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <label>Phone</label>
+                            <a href="tel:{{ member.phone }}" class="info-value phone-link">
+                                {{ member.phone }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bio-card">
+            <div class="card-header">
+                <h2>Assigned Patients</h2>
+            </div>
+            <div class="card-body">
+                {% if patients %}
+                    <ul class="relation-list">
+                        {% for p in patients %}
+                            <li class="relation-item">
+                                <span class="relation-name">{{ p.name }}</span>
+                                <span class="relation-meta">{{ p.age }} years • {{ p.gender }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="no-bio">
+                        <div class="no-bio-icon">🧑‍⚕️</div>
+                        <h3>No Assigned Patients</h3>
+                        <p>This team member is not currently assigned to any patients.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="member-additional-info">
+        <div class="card">
+            <div class="card-header">
+                <h2>Shift History</h2>
+            </div>
+            <div class="card-body">
+                {% if shifts %}
+                    <ul class="shift-list">
+                        {% for s in shifts %}
+                            <li class="shift-item">
+                                <span class="shift-time">
+                                    {{ s.start_time|date:"F j, Y H:i" }} – {{ s.end_time|date:"F j, Y H:i" }}
+                                </span>
+                                {% if s.notes %}
+                                    <span class="shift-notes">{{ s.notes }}</span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No recorded shifts for this team member.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-actions">
+        <a href="{% url 'medapp:team_member_list' %}" class="btn btn-outline">
+            ← Return to Team Directory
+        </a>
+    </div>
+</div>
+{% endblock %}
