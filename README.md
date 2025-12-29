@@ -107,11 +107,7 @@ classDiagram
         +__str__()
     }
 
-    TeamMember "1" --> "0..1" User : linked via
-    Shift "0..*" --> "1" TeamMember : records shift for
-    PatientFile "0..*" --> "1" TeamMember : uploaded by
-    PatientFile "0..*" --> "1" Patient : associated with
-    Patient "0..*" --> "0..*" TeamMember : assigned to
+   
 ```
 
 ### TeamMember
