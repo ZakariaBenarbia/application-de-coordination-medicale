@@ -1,0 +1,123 @@
+{% extends "medapp/base.html" %}
+{% block title %}Patient Record - {{ patient.name }}{% endblock %}
+
+{% block content %}
+<div class="patient-detail-container">
+    <div class="patient-header">
+        <h1 class="patient-name">{{ patient.name }}</h1>
+        <div class="patient-actions">
+            <a href="{% url 'medapp:patient_list' %}" class="btn btn-secondary">
+                ← Back to Patient List
+            </a>
+        </div>
+    </div>
+
+    <div class="patient-info-card">
+        <div class="card-header">
+            <h2>Demographic Information</h2>
+        </div>
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Age</label>
+                    <span class="info-value">{{ patient.age }} years</span>
+                </div>
+                <div class="info-item">
+                    <label>Gender</label>
+                    <span class="info-value">{{ patient.gender }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="patient-medical-card">
+        <div class="card-header">
+            <h2>Medical History</h2>
+        </div>
+        <div class="card-body">
+            {% if patient.medical_history %}
+                <div class="medical-history-content">
+                    {{ patient.medical_history|linebreaks }}
+                </div>
+            {% else %}
+                <p class="no-data">No medical history recorded</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="patient-relations-grid">
+        <div class="patient-practitioners-card">
+            <div class="card-header">
+                <h2>Assigned Team Members</h2>
+            </div>
+            <div class="card-body">
+                {% if practitioners %}
+                    <ul class="relation-list">
+                        {% for member in practitioners %}
+                            <li class="relation-item">
+                                <span class="relation-name">{{ member.name }}</span>
+                                <span class="relation-role">{{ member.role }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-data">No team members are currently assigned to this patient.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="patient-files-card">
+            <div class="card-header">
+                <h2>Patient Files</h2>
+            </div>
+            <div class="card-body">
+                <div class="file-upload-section">
+                    <h3>Upload New File</h3>
+                    <form method="post" enctype="multipart/form-data" class="file-upload-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ file_form.file }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload File</button>
+                    </form>
+                </div>
+
+                <div class="file-list-section">
+                    {% if files %}
+                        <h3>Uploaded Files</h3>
+                        <ul class="file-list">
+                            {% for f in files %}
+                                <li class="file-item">
+                                    <a href="{% url 'medapp:patient_file_download' f.id %}" class="file-link" target="_blank">
+                                        <span class="file-name">
+                                            {{ f.file.name|cut:"patient_files/" }}
+                                        </span>
+                                    </a>
+                                    <span class="file-meta">
+                                        Uploaded {{ f.uploaded_at|date:"F j, Y H:i" }}
+                                        {% if f.uploaded_by %}
+                                            by {{ f.uploaded_by.name }}
+                                        {% endif %}
+                                    </span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="no-data">No files have been uploaded for this patient yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-actions">
+        <a href="{% url 'medapp:patient_list' %}" class="btn btn-outline">
+            ← Return to Patient List
+        </a>
+        <!-- Add additional action buttons as needed -->
+        <a href="{% url 'medapp:patient_edit' patient.id %}" class="btn btn-primary">
+            Edit Patient Record
+        </a>
+    </div>
+</div>
+{% endblock %}
