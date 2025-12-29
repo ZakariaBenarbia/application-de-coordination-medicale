@@ -225,10 +225,14 @@ Les patients peuvent être affectés à plusieurs membres de l'équipe, permetta
 - Recherche facile de praticien pour chaque patient
 - Vue du praticien de tous les patients affectés
 
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/8c4ecf06-9f1c-46fe-9a68-09f172bb8076" />
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/585a311c-ce1a-4e7e-a49c-a465332167e9" />
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b065fb85-eaa2-47a3-86b3-0586ac132d86" />
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7377ea1a-c9e1-47ba-9eb0-48200e147266" />
+  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e4891567-5f98-42ca-9007-a78bf2e2c60e" />
+  
+  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/453d8f6c-318f-4ee1-b230-47bef3101e8c" />
+
+  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1c9ec058-e9b4-4d4b-b800-1a418c36158d" />
+
+  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7329c10b-f90a-4b5d-9dcf-e3c7273c9d6a" />
+
 
 
 
@@ -238,5 +242,5 @@ Les patients peuvent être affectés à plusieurs membres de l'équipe, permetta
 
 L'application est officiellement déployée et accessible en ligne via **PythonAnywhere** :
 **Lien de l'application :** [https://zakariabenarbia.pythonanywhere.com]
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/89dee67b-fc16-420b-9c2b-a340e5cd3259" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/af66da9c-8dc1-455f-8d1b-77bfe9aa4bfa" />
 
