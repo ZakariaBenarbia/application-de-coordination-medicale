@@ -1,4 +1,3 @@
-# application-de-coordination-medicale
 # MedApp
 
 Système de gestion de pratique médicale basé sur Django, conçu pour rationaliser la coordination d'équipe, les dossiers patients et les affectations de praticiens.
@@ -9,7 +8,8 @@ Système de gestion de pratique médicale basé sur Django, conçu pour rational
 - **Dossiers Patients** : Créer et maintenir des profils de patients détaillés incluant les antécédents médicaux
 - **Affectation Patient-Praticien** : Affecter des patients à plusieurs membres de l'équipe pour des soins collaboratifs
 - **Suivi des Équipes** : Enregistrer et surveiller les shifts et la disponibilité des membres de l'équipe
-- **Gestion des Fichiers Patients** : Télécharger et organiser les fichiers patients de manière sécurisée
+- **Gestion des Fichiers Patients** : Télécharger, organiser et consulter les fichiers patients de manière sécurisée directement depuis la page de détail du patient
+- **Visualisation des Fichiers** : Ouvrir et télécharger les fichiers patients directement depuis le dossier patient
 - **Authentification Sécurisée** : Authentification des utilisateurs avec création automatique de compte pour les membres de l'équipe
 - **Interface Réactive** : Interface web conviviale et propre construite avec les templates Django
 
@@ -106,13 +106,12 @@ classDiagram
         +ForeignKey uploaded_by
         +__str__()
     }
- TeamMember  -->  User : linked via
-    Shift -->  TeamMember : records shift for
-    PatientFile  --> TeamMember : uploaded by
-    PatientFile -->  Patient : associated with
-    Patient  -->  TeamMember : assigned to
 
-   
+    TeamMember --> User : linked via
+    Shift --> TeamMember : records shift for
+    PatientFile  -->  TeamMember : uploaded by
+    PatientFile  --> Patient : associated with
+    Patient --> TeamMember : assigned to
 ```
 
 ### TeamMember
@@ -205,8 +204,11 @@ Gère les documents médicaux téléchargés associés aux patients.
 
 **Gérer les Fichiers Patients :**
 1. Accédez à la page de détail du patient
-2. Téléchargez les fichiers médicaux (stockés dans `media/patient_files/`)
-3. Les fichiers sont liés au patient et enregistrés avec l'horodatage et l'uploader
+2. Allez à la section "Patient Files"
+3. Dans la section "Upload New File", sélectionnez un fichier et cliquez sur "Upload File"
+4. Le fichier est téléchargé et enregistré avec l'horodatage et le nom de celui qui a téléchargé
+5. Cliquez sur le nom du fichier dans la liste pour l'ouvrir ou le télécharger
+6. Les fichiers s'ouvrent dans un nouvel onglet pour visualisation ou téléchargement
 
 ## Caractéristiques Clés
 
@@ -221,10 +223,4 @@ Les patients peuvent être affectés à plusieurs membres de l'équipe, permetta
 - Soins collaboratifs
 - Recherche facile de praticien pour chaque patient
 - Vue du praticien de tous les patients affectés
-
-### Stockage Sécurisé des Fichiers
-Les fichiers patients sont :
-- Téléchargés dans un répertoire dédié
-- Suivis avec horodatage et informations de l'uploader
-- Organisés par patient pour une récupération facile
 
