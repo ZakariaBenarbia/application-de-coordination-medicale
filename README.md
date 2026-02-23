@@ -252,6 +252,8 @@ Les patients peuvent être affectés à plusieurs membres de l'équipe, permetta
 ## Déploiement
 
 L'application est officiellement déployée et accessible en ligne via **PythonAnywhere** :
-**Lien de l'application :** [https://zakariabenarbia.pythonanywhere.com]
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/af66da9c-8dc1-455f-8d1b-77bfe9aa4bfa" />
+**Lien de l'application :** [https://zakariabenarbia.pythonanywhere.com]</p>
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0b82f79a-6d54-4040-8dfa-309cb2b25b15" />
+
 
