@@ -225,7 +225,7 @@ Les patients peuvent être affectés à plusieurs membres de l'équipe, permetta
 - Recherche facile de praticien pour chaque patient
 - Vue du praticien de tous les patients affectés
 
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e4891567-5f98-42ca-9007-a78bf2e2c60e" />
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fd8506f3-a7cd-4eb6-b346-7c29070204df" />
   
   <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/453d8f6c-318f-4ee1-b230-47bef3101e8c" />
 
