@@ -225,13 +225,24 @@ Les patients peuvent être affectés à plusieurs membres de l'équipe, permetta
 - Recherche facile de praticien pour chaque patient
 - Vue du praticien de tous les patients affectés
 
+
+
+
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aa55f0e6-2d0f-4985-b9f3-91d40930f67e" />
+
+
   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fd8506f3-a7cd-4eb6-b346-7c29070204df" />
   
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/453d8f6c-318f-4ee1-b230-47bef3101e8c" />
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ee6be420-168a-46c4-9609-5343b46bfa0e" />
 
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1c9ec058-e9b4-4d4b-b800-1a418c36158d" />
 
-  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7329c10b-f90a-4b5d-9dcf-e3c7273c9d6a" />
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b45e95a-fb5b-4de7-84fa-9be89a4093fa" />
+
+
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/044830fb-b730-4fe2-8cbf-8f6df4a57d1c" />
+
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/26d92c61-69f2-4f6a-985f-a0bed9b077ec" />
+
 
 
 
